@@ -11,6 +11,6 @@ function request(method, url, data) {
     })
     .then(response => response.json())
     .catch(error => {
-      console.error("POST request failed:", error);
+      console.log(error)
     });
   }
