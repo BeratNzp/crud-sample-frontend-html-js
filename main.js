@@ -1,16 +1,14 @@
 function request(method, url, data) {
-    if (method != "POST" || method != "GET" || method != "PUT" || method != "DELETE") {
-        method = "GET"
-    }
-    return fetch(url, { 
-      method: method,
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: data
-    })
-    .then(response => response.json())
-    .catch(error => {
-      console.log(error)
+  const selectedMethodString = ["POST", "GET", "PUT", "DELETE"].includes(method) ? method : "GET";
+  return fetch(url, {
+    method: selectedMethodString,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data,
+  })
+    .then((response) => response.json())
+    .catch((error) => {
+      console.log(error);
     });
-  }
+}
